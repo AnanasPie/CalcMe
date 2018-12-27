@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { AppSettingsService } from '../app-settings.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  showSettings = true;
+
+  constructor(private appSettings: AppSettingsService,
+    private ref: ChangeDetectorRef) {
+    this.appSettings.handler = () => {
+      console.log('Finish settings');
+      this.showSettings = false;
+      this.ref.detectChanges();
+    };
+   }
 
   ngOnInit() {
+    
   }
 
 }

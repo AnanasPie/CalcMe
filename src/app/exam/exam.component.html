@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row" *ngFor="let q of questionArray">
+    {{q.id + 1}}) {{ q.firstNum }} * {{ q.secondNum}} = 
+    <input type="text" class="form-control" 
+    [(ngModel)]="q.userResult" 
+    #txtArea
+    (keyup.enter)="enterClicked($event)"
+    [ngStyle]="q.alreadyAnswered ? ( q.isCorrect ? {'background-color':'green'} : {'background-color':'red'} ) : {'background-color': 'white'}"
+     />
+
+     {{ doSomething() }}
+  </div>
+</div>

@@ -1,1 +1,9 @@
 <h1> Calc me </h1>
+
+<div *ngIf="showSettings">
+    <app-settings></app-settings>
+</div>
+<div *ngIf="!showSettings">
+  Not settings
+  <app-exam></app-exam>
+</div>
