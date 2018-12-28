@@ -13,6 +13,7 @@ export class AppSettingsService {
   handler: (() => void) = null;
   startTimer: (() => void) = null;
   endtimer: (() => void) = null;
+  reset: (() => void) = null;
 
   constructor() {
     this.questionsArray = [];
@@ -28,11 +29,13 @@ export class AppSettingsService {
     if (this.handler != null) {
       this.handler();
     }
-    if (this.startTimer != null) {
-      this.startTimer();
-    }
   }
 
+  resetGame() {
+    if (this.reset != null) {
+      this.reset();
+    }
+  }
   finishExam() {
     if (this.endtimer != null) {
       this.endtimer();
@@ -41,9 +44,13 @@ export class AppSettingsService {
   getQuestion(index: number) {
     return this.questionsArray[index];
   }
-  private createQuestionArray() {
+  createQuestionArray() {
+    this.questionsArray = [];
     for (var i = 0; i < this.amountOfQuestions; ++i) {
       this.questionsArray.push(new Question(i, this.getRandomNumber(), this.getRandomNumber(), this.operation));
+    }
+    if (this.startTimer != null) {
+      this.startTimer();
     }
   }
   private getRandomNumber() {

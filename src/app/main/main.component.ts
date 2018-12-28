@@ -13,10 +13,13 @@ export class MainComponent implements OnInit {
   constructor(private appSettings: AppSettingsService,
     private ref: ChangeDetectorRef) {
     this.appSettings.handler = () => {
-      console.log('Finish settings');
       this.showSettings = false;
       this.ref.detectChanges();
     };
+    this.appSettings.reset = () => {
+      this.showSettings = true;
+      this.ref.detectChanges();
+    }
    }
 
   ngOnInit() {

@@ -55,6 +55,21 @@ export class ExamComponent implements OnInit {
     this.fetchNextQuestion();
   }
 
+  reset() {
+    this.appSettings.createQuestionArray();
+    this.questionArray = [];
+    this.lastSelectedQuestion = 0;
+    this.finishExam = false;
+    this.cons = "";
+  }
+  newGame() {
+    this.reset();
+    this.fetchNextQuestion();
+  }
+  goToSettings() {
+    this.reset();
+    this.appSettings.resetGame();
+  }
   doSomething() {
     if (this.lastSelectedQuestion > this.questionArray.length) {
       return;

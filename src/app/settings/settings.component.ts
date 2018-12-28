@@ -30,6 +30,20 @@ export class SettingsComponent implements OnInit {
     if (this.min) op = '-';
     if (this.add) op = '+';
     if (this.mul) op = '*';
+
+    if (this.amountOfQuestions <= 0) {
+      alert('Amount of questions smaller then 0');
+      return;
+    }
+    if (this.minimumNumber < 0) {
+      alert ('Minimum number smaller then 0');
+      return;
+    }
+    if (this.minimumNumber >= this.maximumNumber) {
+      alert ('Minimum number must be smaller then maximum number');
+      return;
+    }
+
     this.appSettingsInstance.setData(this.amountOfQuestions, this.minimumNumber, this.maximumNumber, op);
   }
   changeOpertaion(newOp) {

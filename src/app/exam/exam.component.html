@@ -1,12 +1,12 @@
 <div class="container" style="margin: 10px;">
   <div [hidden]="finishExam" class="row justify-content-center" *ngFor="let q of questionArray">
     {{q.id + 1}}) {{ q.firstNum }} {{ q.operation }} {{ q.secondNum}} = 
-    <input type="text" class="form-control" 
+    <input type="number" class="form-control" 
     [(ngModel)]="q.userResult" 
     #txtArea
     (keyup.enter)="enterClicked($event)"
     style="width: 200px;margin-left:20px;margin-right: 20px;"
-    [ngStyle]="q.alreadyAnswered ? ( q.isCorrect ? {'background-color':'green'} : {'background-color':'red'} ) : {'background-color': 'white'}"
+    [ngStyle]="q.alreadyAnswered ? ( q.isCorrect ? {'background-color':'lightgreen'} : {'background-color':'red'} ) : {'background-color': 'white'}"
      />
      <label [hidden]="!q.alreadyAnswered">{{ q.result }} </label>
 
@@ -15,4 +15,10 @@
 </div>
 <div [hidden]="!finishExam" class="row justify-content-center">
   <h1>{{ cons }}</h1>
+</div>
+<div [hidden]="!finishExam" class="row justify-content-center">
+  <input type="button" class="btn btn-primary" style="margin:10px;"
+  (click)="newGame()" value="Start again" />
+  <input type="button" class="btn btn-danger" style="margin:10px;"
+  (click)="goToSettings()" value="Go to settings" />
 </div>

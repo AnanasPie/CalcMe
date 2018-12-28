@@ -9,13 +9,17 @@ import { AppSettingsService } from '../app-settings.service';
 })
 export class MyTimerComponent implements OnInit {
 
-  myTimer;
+  myTimer = null;
   minutes = 0;
   seconds = 0;
   finish = false;
 
   constructor(private ser: AppSettingsService, private ref: ChangeDetectorRef) { 
     ser.startTimer = (() => {
+      this.minutes = this.seconds = 0;
+      this.finish = false;
+      if (this.myTimer != null)
+        return;
       this.myTimer = timer(0, 1000);
       this.myTimer.subscribe(t => {
         if (this.finish) {
