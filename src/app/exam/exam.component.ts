@@ -43,8 +43,10 @@ export class ExamComponent implements OnInit {
   ngOnInit() {
   }
   doneClicked(e) {
+    if (e != (this.questionArray.length - 1)) {
+      return;
+    }
     var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
-    console.log(iOS);
     if (!iOS) {
       return
     }
