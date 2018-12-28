@@ -9,7 +9,7 @@ import { AppSettingsService } from '../app-settings.service';
 })
 export class SettingsComponent implements OnInit {
 
-  amountOfQuestions = 10;
+  amountOfQuestions = 30;
   minimumNumber = 1;
   maximumNumber = 100;
   appSettingsInstance: AppSettingsService;

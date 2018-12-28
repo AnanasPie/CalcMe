@@ -1,4 +1,8 @@
 <div class="container" style="margin: 10px;">
+  <div class="row" [hidden]="finishExam">
+      <input type="button" class="btn btn-danger" style="margin:10px;"
+      (click)="goToSettings()" value="Go to settings" />
+  </div>
   <div [hidden]="finishExam" class="row justify-content-center" *ngFor="let q of questionArray">
     {{q.id + 1}}) {{ q.firstNum }} {{ q.operation }} {{ q.secondNum}} = 
     <input type="number" class="form-control"  pattern="\d*"
@@ -21,5 +25,5 @@
   <input type="button" class="btn btn-primary" style="margin:10px;"
   (click)="newGame()" value="Start again" />
   <input type="button" class="btn btn-danger" style="margin:10px;"
-  (click)="goToSettings()" value="Go to settings" />
+      (click)="goToSettings()" value="Go to settings" />
 </div>
