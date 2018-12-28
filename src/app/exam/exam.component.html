@@ -3,8 +3,8 @@
     {{q.id + 1}}) {{ q.firstNum }} {{ q.operation }} {{ q.secondNum}} = 
     <input type="number" class="form-control"  pattern="\d*"
     [(ngModel)]="q.userResult" 
-    #txtArea
-    (keyup.enter)="enterClicked($event)"
+    #txtArea 
+    (focusout)="enterClicked($event)"
     style="width: 200px;margin-left:20px;margin-right: 20px;"
     [ngStyle]="q.alreadyAnswered ? ( q.isCorrect ? {'background-color':'lightgreen'} : {'background-color':'red'} ) : {'background-color': 'white'}"
      />
