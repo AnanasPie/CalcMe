@@ -12,6 +12,8 @@ export class ExamComponent implements OnInit {
   
   questionArray: Question[] = [];
   lastSelectedQuestion: number = 0;
+  finishExam: boolean = false;
+  cons: string = "";
 
   constructor(private appSettings: AppSettingsService,
     private ref: ChangeDetectorRef) {
@@ -20,9 +22,22 @@ export class ExamComponent implements OnInit {
    }
 
   fetchNextQuestion() {
-    console.log('Going to fetc');
     if (this.questionArray.length < this.appSettings.amountOfQuestions) {
+      console.log('fetch next');
       this.questionArray.push(this.appSettings.getQuestion(this.questionArray.length));
+    } else {
+      this.appSettings.finishExam();
+      this.finishExam = true;
+      let correctAmount = 0;
+      for (let i = 0; i < this.questionArray.length; i++) {
+        if (this.questionArray[i].isCorrect) {
+          correctAmount++;
+        }
+      }
+
+      this.cons = String(correctAmount) + "/" + String(this.questionArray.length);
+      this.cons += "(" + correctAmount * 100 / this.questionArray.length + ")";
+      this.ref.detectChanges();
     }
    }
   ngOnInit() {
@@ -38,7 +53,6 @@ export class ExamComponent implements OnInit {
 
     q.alreadyAnswered = true;
     this.fetchNextQuestion();
-    // this.doSomething(true);
   }
 
   doSomething() {

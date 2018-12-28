@@ -24,9 +24,24 @@
       </div>
   </div>
   <div class="form-group row">
+      <div class="col-sm-4"></div>
+      <div class="switch-field">
+        <div class="switch-title">Opertaion: </div>
+        <input type="radio" id="switch_3_left" name="switch_3" value="mul" [checked]="mul" (click)="changeOpertaion('*');" />
+        <label for="switch_3_left">*</label>
+        <input type="radio" id="switch_3_center" name="switch_3" value="div" [checked]="div" (click)="changeOpertaion('/');" />
+        <label for="switch_3_center">/</label>
+        <input type="radio" id="switch_3_right" name="switch_3" value="add" [checked]="add" (click)="changeOpertaion('+');" />
+        <label for="switch_3_right">+</label>
+        <input type="radio" id="switch_3_right2" name="switch_3" value="min" [checked]="min" (click)="changeOpertaion('-');"/>
+        <label for="switch_3_right2">-</label>
+      </div>
+  </div>
+  <div class="form-group row">
       <div class="col-sm-5"></div>
       <div class="col-sm-2">
         <input type="button" class="btn btn-primary" value="Submit" (click)="submitForm()" />
       </div>    
   </div>
+  
 </div>

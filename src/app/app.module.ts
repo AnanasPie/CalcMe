@@ -7,13 +7,15 @@ import { SettingsComponent } from './settings/settings.component';
 import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 import { ExamComponent } from './exam/exam.component';
+import { MyTimerComponent } from './my-timer/my-timer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SettingsComponent,
     MainComponent,
-    ExamComponent
+    ExamComponent,
+    MyTimerComponent
   ],
   imports: [
     BrowserModule,
