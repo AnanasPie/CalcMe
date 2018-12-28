@@ -1,7 +1,7 @@
 <div class="container" style="margin: 10px;">
   <div [hidden]="finishExam" class="row justify-content-center" *ngFor="let q of questionArray">
     {{q.id + 1}}) {{ q.firstNum }} {{ q.operation }} {{ q.secondNum}} = 
-    <input type="number" class="form-control" 
+    <input type="number" class="form-control"  pattern="\d*"
     [(ngModel)]="q.userResult" 
     #txtArea
     (keyup.enter)="enterClicked($event)"

@@ -6,21 +6,21 @@
       <div class="col-sm-3"></div>
       <label for="staticEmail" class="col-sm-2 col-form-label">Number of questions: </label>
       <div class="col-sm-2">
-        <input type="number" class="form-control" [(ngModel)]="amountOfQuestions"  />
+        <input type="number" pattern="\d*" class="form-control" [(ngModel)]="amountOfQuestions"  />
       </div>
   </div>
   <div class="form-group row">
       <div class="col-sm-3"></div>
       <label for="staticEmail" class="col-sm-2 col-form-label">Minimum number: </label>
       <div class="col-sm-2">
-        <input type="number" class="form-control" [(ngModel)]="minimumNumber" />
+        <input type="number" pattern="\d*" class="form-control" [(ngModel)]="minimumNumber" />
       </div>
   </div>
   <div class="form-group row">
       <div class="col-sm-3"></div>
       <label for="staticEmail" class="col-sm-2 col-form-label">Maximum number: </label>
       <div class="col-sm-2">
-        <input type="number" class="form-control" [(ngModel)]="maximumNumber" />
+        <input type="number" pattern="\d*" class="form-control" [(ngModel)]="maximumNumber" />
       </div>
   </div>
   <div class="form-group row">
