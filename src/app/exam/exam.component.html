@@ -4,7 +4,8 @@
     <input type="number" class="form-control"  pattern="\d*"
     [(ngModel)]="q.userResult" 
     #txtArea 
-    (focusout)="enterClicked($event)"
+    (focusout)="doneClicked(q.id)"
+    (keyup.enter)="enterClicked(q.id)"
     style="width: 200px;margin-left:20px;margin-right: 20px;"
     [ngStyle]="q.alreadyAnswered ? ( q.isCorrect ? {'background-color':'lightgreen'} : {'background-color':'red'} ) : {'background-color': 'white'}"
      />

@@ -42,7 +42,15 @@ export class ExamComponent implements OnInit {
    }
   ngOnInit() {
   }
-  enterClicked(e) {
+  doneClicked(e) {
+    var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+    console.log(iOS);
+    if (!iOS) {
+      return
+    }
+    this.handleClick();
+  }
+  handleClick() {
     var q = this.questionArray[this.questionArray.length - 1];
     let userResultNumber = parseInt(q.userResult);
     if (isNaN(userResultNumber)) {
@@ -53,6 +61,14 @@ export class ExamComponent implements OnInit {
 
     q.alreadyAnswered = true;
     this.fetchNextQuestion();
+  }
+  enterClicked(e) {
+    var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+    if (iOS) {
+      return;
+    }
+    this.handleClick();
+    
   }
 
   reset() {
